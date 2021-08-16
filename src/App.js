@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 import DogList from "./DogList";
 import DogDetails from "./DogDetails";
+import Nav from "./Nav"
 import whiskey from "./whiskey.jpg";
 import perry from "./perry.jpg";
 import tubby from "./tubby.jpg";
@@ -11,13 +11,15 @@ import duke from "./duke.jpg";
 function App(props) {
   return (
     <BrowserRouter>
+    {/* dont need to map here, because we map in nav */}
+      <Nav dogNames={props.dogs.map(d => d.name)}/> 
       <Switch>
         <Route exact path="/dogs">
           <DogList dogInfo={props.dogs}/>
         </Route>
-        {/* <Route path="/dogs/:name">
-          <DogDetails />
-        </Route> */}
+        <Route exact path="/dogs/:name">
+          <DogDetails dogInfo={props.dogs}/>
+        </Route>
         <Redirect to="/dogs" />
       </Switch>
     </BrowserRouter>

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 /** DogList: takes all dogs info as props
  *
- * Props: dogInfo - arr of obj containing dog info
+ * Props: 
+ *  - dogInfo - arr of obj containing dog info
+ *  // TODO: show an example
  */
 function DogList({ dogInfo }) {
   return (
@@ -12,11 +14,6 @@ function DogList({ dogInfo }) {
         <p>
           <Link to={`/dogs/${d.name.toLowerCase()}`}><img src={d.src} alt={`${d.src}`} /></Link>
           name: {d.name}
-          age: {d.age}
-          facts:
-          {d.facts.map((f) => (
-            <p>{f}</p>
-          ))}
         </p>
       ))}
     </div>
